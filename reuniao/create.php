@@ -26,7 +26,11 @@
         <h2>Cadastro de Reuniôes</h2>
         <form method="post" action="create.php">
             <p>titulo : <input type="text" name="titulo"></p>
-            <p>contato : <input type="text" name="contato"></p>
+            <p>contato : <select name="contato">
+            <?php while ($row = mysqli_fetch_array($result)){ ?>
+            <option value="<?php echo ($row['idcontato']) ?>">
+                    <?php echo ($row['nome']) ?></option><?php } ?></select></p>
+            } 
             <p><input type="submit" value="gravar"></p>
         </form>
     </body>
