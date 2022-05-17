@@ -15,6 +15,8 @@
     if(mysqli_num_rows($result) > 0){
         header('Location: ../principal/index.php');
         $_SESSION['nome'] = $row['nome'];
+        $_SESSION['login'] = $row['login'];
+        $_SESSION['senha'] = $row['senha'];
     
     } else{
         echo "Usuario ou senha inválido";
