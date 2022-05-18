@@ -2,7 +2,7 @@
     require_once "../util/config.php";
     if($_GET['id']){
         $id = $_GET['id'];
-        $sql = "SELECT * FROM contato WHERE idcontato = ?";
+        $sql = "SELECT idreuniao, titulo, contato_idcontato, nome from reuniao, contato where contato_idcontato = idcontato and idreuniao = ?";
         $stmt = mysqli_prepare($link, $sql);
         mysqli_stmt_bind_param($stmt, "i", $id);
         mysqli_stmt_execute($stmt);
@@ -12,12 +12,11 @@
 ?>
 <html lang="pt-br">
 <head>
-    <title>Detalhes do Contato</title>
+    <title>Detalhes da Reunião</title>
 </head>
 <body>
-    <h2>Detalhes do Contato</h2>
+    <h2>Detalhes da Reunião</h2>
     <p>Nome: <?php echo($row['nome']) ?></p>
-    <p>Telefone: <?php echo($row['telefone']) ?></p>
-    <p>Endereço: <?php echo($row['endereco']) ?></p>
+    <p>Titulo: <?php echo($row['titulo']) ?></p>
 </body>
 </html>

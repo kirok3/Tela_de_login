@@ -5,7 +5,7 @@
         $titulo = $_POST["titulo"];
         $contato = $_POST["contato"];
 
-        $sql = "INSERT INTO contato (titulo, contato_idcontato) VALUES (?, ?)";
+        $sql = "INSERT INTO reuniao (titulo, contato_idcontato) VALUES (?, ?)";
 
         $stmt = mysqli_prepare($link, $sql);
 
@@ -30,7 +30,6 @@
             <?php while ($row = mysqli_fetch_array($result)){ ?>
             <option value="<?php echo ($row['idcontato']) ?>">
                     <?php echo ($row['nome']) ?></option><?php } ?></select></p>
-            } 
             <p><input type="submit" value="gravar"></p>
         </form>
     </body>
